@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BEELITZ :: MSRY_Jukebox</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="background-animation"></div>
+
+    <main class="container">
+        <header>
+            <h1>BEELITZ</h1>
+            <p>// MSRY_Jukebox</p>
+        </header>
+
+        <div class="display" id="display">
+            <div id="song-info">
+                <h2 id="song-title">IN ATTESA DI INPUT</h2>
+                <p id="song-description">PREMERE IL PULSANTE PER INIZIALIZZARE LA TRISTEZZA.</p>
+            </div>
+            <div class="player-container" id="player-container"></div>
+        </div>
+        
+        <button id="play-button">[ AVVIA PROTOCOLLO MISERIA ]</button>
+
+        <footer class="misery-status">
+            <div class="status-grid">
+                <span>LIVELLO MISERIA ATTUALE:</span>
+                <span id="misery-level">0</span>
+            </div>
+            <div class="bar-container">
+                <div class="bar" id="misery-bar"></div>
+            </div>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

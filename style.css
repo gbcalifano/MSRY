@@ -1,0 +1,190 @@
+:root {
+    --main-bg: #111111;
+    --text-color: #f0f0f0;
+    --border-color: #f0f0f0;
+    --accent-color: #ff0000;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: var(--main-bg);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    overflow: hidden; /* Nasconde lo scroll causato dall'animazione */
+}
+
+/* --- SFONDO ANIMATO --- */
+#background-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    pointer-events: none; /* Rende lo sfondo non cliccabile */
+}
+
+.floating-face {
+    position: absolute;
+    /* >> MODIFICA: Aumentata la dimensione << */
+    width: 150px; 
+    height: 150px;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.15;
+    filter: grayscale(100%);
+    transition: transform 0.1s linear; /* Transizione più fluida */
+}
+
+/* >> NUOVO: Stile per l'effetto di collisione << */
+.floating-face.colliding {
+    opacity: 0.5;
+    filter: grayscale(0%);
+}
+/* -------------------- */
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    border: 2px solid var(--border-color);
+    padding: 20px;
+    background-color: rgba(17, 17, 17, 0.8);
+    position: relative;
+    z-index: 1;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    letter-spacing: 5px;
+}
+
+.display {
+    border: 2px solid var(--border-color);
+    padding: 20px;
+    margin-bottom: 20px;
+    min-height: 150px;
+}
+
+#song-title {
+    font-size: 1.8rem;
+    color: var(--accent-color);
+    margin-bottom: 10px;
+    word-wrap: break-word;
+}
+
+#song-description {
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+.player-container {
+    margin-top: 20px;
+}
+
+button {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--main-bg);
+    background-color: var(--text-color);
+    border: 2px solid var(--border-color);
+    width: 100%;
+    padding: 15px;
+    cursor: pointer;
+    text-align: center;
+    margin-bottom: 20px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+button:hover {
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    border-color: var(--accent-color);
+}
+
+button:active {
+    background-color: var(--main-bg);
+    color: var(--text-color);
+}
+
+
+.misery-status {
+    border-top: 2px solid var(--border-color);
+    padding-top: 10px;
+}
+
+.status-grid {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.bar-container {
+    width: 100%;
+    height: 25px;
+    border: 2px solid var(--border-color);
+}
+
+.bar {
+    height: 100%;
+    width: 0%;
+    background-color: var(--text-color);
+    transition: width 0.5s linear;
+}
+
+audio {
+    width: 100%;
+    filter: grayscale(100%);
+}
+
+/* --- REGOLE MOBILE-FRIENDLY --- */
+@media (max-width: 640px) {
+    body {
+        padding: 10px;
+        align-items: flex-start;
+    }
+
+    .container {
+        padding: 15px;
+    }
+
+    .floating-face {
+        width: 100px;
+        height: 100px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    #song-title {
+        font-size: 1.5rem;
+    }
+
+    #song-description {
+        font-size: 0.9rem;
+    }
+
+    button {
+        font-size: 1rem;
+        padding: 12px;
+    }
+}
